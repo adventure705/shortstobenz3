@@ -1,0 +1,553 @@
+<!-- 1. Dashboard Section -->
+<section id="section-dashboard" class="space-y-8 max-w-6xl mx-auto mb-24">
+    <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-lg border border-gray-100 dark:border-dark-border">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">권고사직에서 월 1억까지: <span class="text-brand">생산성
+                혁명</span></h3>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+            평범한 직장인이었던 가장이 권고사직 후 코인 실패 등 밑바닥을 겪고, 유튜브 쇼츠를 통해 <strong>누적 20억</strong> 수익을 달성한 비결입니다.
+            단순한 '영상 제작(Production)'이 아닌, AI를 활용한 압도적인 <strong>'생산성(Productivity)'</strong>으로 승부해야 합니다.
+        </p>
+    </div>
+
+    <!-- J-Curve Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-dark-card border border-dark-border p-4 rounded-lg">
+            <p class="text-xs text-dark-muted">1개월 차 (시행착오)</p>
+            <p class="text-2xl font-bold text-gray-400">70,000 원</p>
+        </div>
+        <div class="bg-dark-card border border-brand/30 p-4 rounded-lg">
+            <p class="text-xs text-brand">3개월 차 (시스템화)</p>
+            <p class="text-2xl font-bold text-brand">1,000 만원</p>
+        </div>
+        <div class="bg-dark-card border border-money/30 p-4 rounded-lg">
+            <p class="text-xs text-money">5개월 차 (폭발)</p>
+            <p class="text-2xl font-bold text-money">1 억 원</p>
+        </div>
+        <div class="bg-dark-card border border-point/30 p-4 rounded-lg">
+            <p class="text-xs text-point">현재 (누적)</p>
+            <p class="text-2xl font-bold text-point">20억 +</p>
+        </div>
+    </div>
+
+    <!-- Charts Area -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-md border border-gray-200 dark:border-dark-border">
+            <h4 class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4"><i
+                    class="fas fa-chart-line text-brand mr-2"></i>수익 성장 그래프 (J-Curve)</h4>
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-md border border-gray-200 dark:border-dark-border">
+            <div class="flex justify-between items-center mb-4">
+                <h4 class="text-lg font-bold text-gray-800 dark:text-gray-200"><i
+                        class="fas fa-stopwatch text-point mr-2"></i>생산 vs 생산성 비교</h4>
+                <button onclick="toggleEfficiencyMode()" id="efficiency-btn"
+                    class="px-3 py-1 bg-gray-700 text-gray-200 text-xs font-bold rounded-full hover:bg-brand transition-colors">AI
+                    모드 켜기</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="efficiencyChart"></canvas>
+            </div>
+            <p id="efficiency-text" class="text-xs text-center mt-3 text-dark-muted">전통적 방식: 기획~편집 4시간
+                소요</p>
+        </div>
+    </div>
+
+    <!-- Mindset -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700">
+            <h4 class="text-lg font-bold text-gray-300 mb-3">❌ 제작자 (Creator) 마인드</h4>
+            <ul class="text-sm text-gray-400 space-y-2">
+                <li>• 노동 중심: "열심히 만들었으니 언젠간 터지겠지."</li>
+                <li>• 자기 만족: 시청자보다 내가 좋아하는 영상을 만듦.</li>
+                <li>• 결과 회피: 조회수가 안 나오면 알고리즘 탓을 함.</li>
+            </ul>
+        </div>
+        <div class="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-xl p-6 border border-indigo-700">
+            <h4 class="text-lg font-bold text-white mb-3">⭕ 운영자 (Operator) 마인드</h4>
+            <ul class="text-sm text-indigo-100 space-y-2">
+                <li>• <strong>결과 책임:</strong> 수익과 조회수에 책임을 지고 설계함.</li>
+                <li>• <strong>데이터 기반:</strong> 터지는 영상의 공식을 분석하고 적용.</li>
+                <li>• <strong>AI 레버리지:</strong> AI를 직원처럼 부려 시스템을 구축.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- 2. Strategy Section (Updated) -->
+<section id="section-strategy"
+    class="space-y-8 max-w-6xl mx-auto mb-24 pt-8 border-t border-gray-200 dark:border-dark-border">
+    <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-sm border border-gray-100 dark:border-dark-border">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">7단계 수익화 표준 프로세스</h2>
+        <p class="mt-2 text-gray-600 dark:text-dark-muted">단순 제작을 넘어, 확장과 시스템화까지 나아가는 로드맵입니다.</p>
+    </div>
+
+    <!-- 7 Step Visualizer -->
+    <div class="relative overflow-x-auto pb-6 no-scrollbar">
+        <div class="flex space-x-4 min-w-max px-2">
+            <!-- Steps 1-3: Core -->
+            <div class="flex flex-col items-center space-y-2 min-w-[140px]">
+                <div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-bold">
+                    1</div>
+                <div class="text-center">
+                    <p class="text-sm font-bold text-gray-200">유통</p>
+                    <p class="text-xs text-gray-500">Distribution</p>
+                </div>
+            </div>
+            <div class="flex items-center text-gray-600"><i class="fas fa-chevron-right"></i></div>
+            <div class="flex flex-col items-center space-y-2 min-w-[140px]">
+                <div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-bold">
+                    2</div>
+                <div class="text-center">
+                    <p class="text-sm font-bold text-gray-200">알파</p>
+                    <p class="text-xs text-gray-500">Plus Alpha</p>
+                </div>
+            </div>
+            <div class="flex items-center text-gray-600"><i class="fas fa-chevron-right"></i></div>
+            <div class="flex flex-col items-center space-y-2 min-w-[140px]">
+                <div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-bold">
+                    3</div>
+                <div class="text-center">
+                    <p class="text-sm font-bold text-gray-200">창작</p>
+                    <p class="text-xs text-gray-500">Creative</p>
+                </div>
+            </div>
+            <div class="flex items-center text-gray-600"><i class="fas fa-chevron-right"></i></div>
+
+            <!-- Steps 4-7: Scale -->
+            <div class="flex flex-col items-center space-y-2 min-w-[140px]">
+                <div class="w-10 h-10 rounded-full bg-tech text-white flex items-center justify-center font-bold">
+                    4</div>
+                <div class="text-center">
+                    <p class="text-sm font-bold text-gray-200">멀티 유즈</p>
+                    <p class="text-xs text-gray-500">Global Export</p>
+                </div>
+            </div>
+            <div class="flex items-center text-gray-600"><i class="fas fa-chevron-right"></i></div>
+            <div class="flex flex-col items-center space-y-2 min-w-[140px]">
+                <div class="w-10 h-10 rounded-full bg-tech text-white flex items-center justify-center font-bold">
+                    5</div>
+                <div class="text-center">
+                    <p class="text-sm font-bold text-gray-200">효율적 꺼내 쓰기</p>
+                    <p class="text-xs text-gray-500">Optimization</p>
+                </div>
+            </div>
+            <div class="flex items-center text-gray-600"><i class="fas fa-chevron-right"></i></div>
+            <div class="flex flex-col items-center space-y-2 min-w-[140px]">
+                <div class="w-10 h-10 rounded-full bg-money text-white flex items-center justify-center font-bold">
+                    6</div>
+                <div class="text-center">
+                    <p class="text-sm font-bold text-gray-200">수익 극대화</p>
+                    <p class="text-xs text-gray-500">Maximize</p>
+                </div>
+            </div>
+            <div class="flex items-center text-gray-600"><i class="fas fa-chevron-right"></i></div>
+            <div class="flex flex-col items-center space-y-2 min-w-[140px]">
+                <div class="w-10 h-10 rounded-full bg-money text-white flex items-center justify-center font-bold">
+                    7</div>
+                <div class="text-center">
+                    <p class="text-sm font-bold text-gray-200">시스템화</p>
+                    <p class="text-xs text-gray-500">Automation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 Core Strategies Details -->
+    <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white mb-4 pl-2 border-l-4 border-brand">3대 핵심 전략 심층 분석</h3>
+
+        <!-- Type 1: Distribution -->
+        <div class="border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden">
+            <button
+                class="accordion-btn w-full px-6 py-4 flex justify-between items-center bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                onclick="toggleAccordion(this)">
+                <div class="flex items-center">
+                    <div class="bg-indigo-500/20 text-brand p-2 rounded mr-3"><i class="fas fa-box-open"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-200">1. 유통형 (Distribution) -
+                        "검증된 것만 가져온다"</span>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon text-gray-400"></i>
+            </button>
+            <div class="accordion-content bg-white dark:bg-dark-card">
+                <div class="p-6 text-sm text-gray-600 dark:text-gray-300 space-y-4">
+                    <p>이미 해외(틱톡, 릴스, 유튜브)에서 조회수가 검증된 영상을 한국어화하여 재가공하는 방식입니다.</p>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg space-y-2">
+                        <p class="font-bold text-risk flex items-center"><i
+                                class="fas fa-exclamation-circle mr-2"></i>핵심: 저작권 회피 전략</p>
+                        <p>원본 영상을 그대로 쓰면 안 됩니다. <strong>'회색지대'</strong>를 공략해야 합니다.</p>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-gray-400">
+                            <li>장면 교체: 유사한 무료 소스나 AI 생성 영상으로 주요 장면을 대체.</li>
+                            <li>AI 변환: 젠스파크 등을 이용해 실사 영상을 3D 애니메이션 캐릭터로 변환.</li>
+                            <li>편집: 컷 편집과 속도 조절을 통해 원본 ID(Fingerprint)를 회피.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Type 2: Plus Alpha -->
+        <div class="border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden">
+            <button
+                class="accordion-btn w-full px-6 py-4 flex justify-between items-center bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                onclick="toggleAccordion(this)">
+                <div class="flex items-center">
+                    <div class="bg-emerald-500/20 text-money p-2 rounded mr-3"><i class="fas fa-magic"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-200">2. 플러스 알파형 (Plus Alpha) -
+                        "새로운 가치를 더한다"</span>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon text-gray-400"></i>
+            </button>
+            <div class="accordion-content bg-white dark:bg-dark-card">
+                <div class="p-6 text-sm text-gray-600 dark:text-gray-300 space-y-4">
+                    <p>기존 인기 영상에 <strong>새로운 가치(관점)</strong>를 더해 재해석합니다. 하나의 소재로 5가지 이상의 콘텐츠를 만들 수 있습니다.
+                    </p>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                        <p class="font-bold text-money mb-2">💡 [사례] 일본 와사비 농사 영상 하나로 5개 만들기</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                            <div class="p-2 bg-dark-bg rounded border border-gray-600">
+                                <span class="text-brand font-bold">1. 국뽕형:</span> "일본 최고급 와사비? 한국 철원에서도
+                                재배 성공!" (지역적 자부심 자극)
+                            </div>
+                            <div class="p-2 bg-dark-bg rounded border border-gray-600">
+                                <span class="text-point font-bold">2. 꿀팁/정보형:</span> "진짜 와사비 구별법 (성분표
+                                확인하세요)"
+                            </div>
+                            <div class="p-2 bg-dark-bg rounded border border-gray-600">
+                                <span class="text-tech font-bold">3. 비교형:</span> "가짜(겨자무) vs 진짜 와사비 맛
+                                비교"
+                            </div>
+                            <div class="p-2 bg-dark-bg rounded border border-gray-600">
+                                <span class="text-money font-bold">4. 장인형:</span> "상어 강판에 와사비를 가는 50년
+                                장인의 손길"
+                            </div>
+                            <div class="p-2 bg-dark-bg rounded border border-gray-600">
+                                <span class="text-white font-bold">5. 스토리형:</span> "와사비 재배에 전 재산을 건 사장님의
+                                눈물" (개발자 스토리)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Type 3: Creative -->
+        <div class="border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden">
+            <button
+                class="accordion-btn w-full px-6 py-4 flex justify-between items-center bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                onclick="toggleAccordion(this)">
+                <div class="flex items-center">
+                    <div class="bg-amber-500/20 text-point p-2 rounded mr-3"><i class="fas fa-pencil-alt"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-200">3. 창작형 (Creative) - "무에서 유를
+                        창조"</span>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon text-gray-400"></i>
+            </button>
+            <div class="accordion-content bg-white dark:bg-dark-card">
+                <div class="p-6 text-sm text-gray-600 dark:text-gray-300 space-y-4">
+                    <p>영상이나 텍스트를 기반으로 나만의 <strong>스토리텔링(기승전결)</strong>을 입혀 완전히 새로운 콘텐츠를 제작합니다. 가장 고수익과
+                        롱런이 가능한 모델입니다.</p>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                        <p class="font-bold text-point mb-2">🔥 [사례] 장작 패는 영상의 재해석</p>
+                        <p class="mb-2">단순히 장작을 패는 영상은 아무런 의미가 없지만, 여기에 <strong>스토리</strong>를 입히면 대박이
+                            납니다.</p>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-gray-400">
+                            <li>"이 남자가 매일 새벽 4시에 일어나 도끼를 드는 충격적인 이유"</li>
+                            <li>가족을 위해, 혹은 잃어버린 무언가를 찾기 위해 노력하는 서사를 부여.</li>
+                            <li>AI 작가(Claude)에게 "감동적인 사연을 만들어줘"라고 요청하여 대본 생성.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulas Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+            <h4 class="font-bold text-tech mb-4 text-lg">⚙️ 4단계 제조 공식</h4>
+            <ol class="space-y-3 text-sm text-gray-300">
+                <li class="flex items-start"><span class="bg-tech/20 text-tech font-bold px-2 rounded mr-2">1</span>
+                    <strong>원료
+                        발견:</strong> NexRev, ViewTrap으로 터지는 소재 발굴.</li>
+                <li class="flex items-start"><span class="bg-tech/20 text-tech font-bold px-2 rounded mr-2">2</span>
+                    <strong>원료
+                        수집:</strong> 대본 스크래핑, 영상 다운로드.</li>
+                <li class="flex items-start"><span class="bg-tech/20 text-tech font-bold px-2 rounded mr-2">3</span>
+                    <strong>원료
+                        가공:</strong> AI로 각색(번역, 요약, 재구성), 3D 변환.</li>
+                <li class="flex items-start"><span class="bg-tech/20 text-tech font-bold px-2 rounded mr-2">4</span>
+                    <strong>완성품:</strong> 후킹 썸네일, 제목 선정, 업로드.
+                </li>
+            </ol>
+        </div>
+        <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+            <h4 class="font-bold text-risk mb-4 text-lg">🔥 필승 스토리 공식 (동물/캐릭터)</h4>
+            <div class="space-y-3 text-sm text-gray-300">
+                <p class="flex items-center"><span class="w-24 text-gray-500 font-bold">1. 필수 요소</span>
+                    여성 캐릭터 등장 (공감대 형성, 시각적 주의)</p>
+                <p class="flex items-center"><span class="w-24 text-gray-500 font-bold">2. 전개</span> 말도
+                    안 되는 동물 등장 + 정성스럽게 키움</p>
+                <p class="flex items-center"><span class="w-24 text-gray-500 font-bold">3. 위기/절정</span>
+                    다른 동물/위협으로부터 주인공이 지켜주는 장면</p>
+                <p class="flex items-center"><span class="w-24 text-gray-500 font-bold">4. 결말</span> "역시
+                    동물은 동물이다" (반전/허무/유머)</p>
+                <p class="mt-2 text-xs text-risk">* 이 구조에 캐릭터만 계속 바꿔 끼우면 무한 생산 가능.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. AI Engine Section -->
+<section id="section-ai-engine"
+    class="space-y-8 max-w-6xl mx-auto mb-24 pt-8 border-t border-gray-200 dark:border-dark-border">
+    <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-sm border border-gray-100 dark:border-dark-border">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">AI 생산성 엔진: 슈퍼 에이전트</h2>
+        <p class="mt-2 text-gray-600 dark:text-dark-muted">
+            남들이 쓰는 툴을 그대로 쓰면 중복됩니다. <strong>Claude + ZenSpark + CapCut</strong> 조합으로 나만의 '영상 채굴' 시스템을
+            만드세요.
+            <span class="text-point font-bold">15분 만에 고퀄리티 영상 제작</span>이 가능합니다.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Workflow Steps -->
+        <div class="relative space-y-8">
+            <div class="step-line"></div>
+
+            <!-- Sourcing -->
+            <div class="flex items-start relative z-10">
+                <div
+                    class="flex-shrink-0 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-brand rounded-full flex items-center justify-center text-brand font-bold shadow-sm">
+                    1</div>
+                <div class="ml-4">
+                    <h4 class="text-lg font-bold text-gray-100">원료 발견 (Sourcing)</h4>
+                    <p class="text-sm text-gray-400 mt-1">NexRev, ViewTrap 활용. 조회수 급상승 중인 해외 영상을 발굴합니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Writing -->
+            <div class="flex items-start relative z-10">
+                <div
+                    class="flex-shrink-0 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-brand rounded-full flex items-center justify-center text-brand font-bold shadow-sm">
+                    2</div>
+                <div class="ml-4">
+                    <h4 class="text-lg font-bold text-gray-100">AI 작가 (Writing)</h4>
+                    <p class="text-sm text-gray-400 mt-1">
+                        <span class="text-tech font-bold">Claude</span> 프로젝트 기능 활용.<br>
+                        성공한 채널의 대본을 학습시켜 '지침서(Persona)'를 만듭니다.<br>
+                        <em>"젠슨 황에 대해 써줘"</em>라고만 해도 완벽한 후킹 대본 생성.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Creating -->
+            <div class="flex items-start relative z-10">
+                <div
+                    class="flex-shrink-0 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-brand rounded-full flex items-center justify-center text-brand font-bold shadow-sm">
+                    3</div>
+                <div class="ml-4">
+                    <h4 class="text-lg font-bold text-gray-100">AI 영상 생성 (Creating)</h4>
+                    <p class="text-sm text-gray-400 mt-1">
+                        <span class="text-tech font-bold">ZenSpark / Opal</span> (58 개념).<br>
+                        텍스트 → 스토리보드 → 이미지 → 비디오 생성이 자동화.<br>
+                        3D 캐릭터 변환으로 저작권 및 얼굴 노출 이슈 해결.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Editing -->
+            <div class="flex items-start relative z-10">
+                <div
+                    class="flex-shrink-0 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-brand rounded-full flex items-center justify-center text-brand font-bold shadow-sm">
+                    4</div>
+                <div class="ml-4">
+                    <h4 class="text-lg font-bold text-gray-100">편집 (Editing)</h4>
+                    <p class="text-sm text-gray-400 mt-1">
+                        AI 드라이브에서 파일 일괄 다운로드.<br>
+                        <span class="text-tech font-bold">CapCut / Vrew</span>에서 TTS와 SRT(자막) 자동 싱크
+                        맞춤.<br>
+                        인간의 감각으로 BGM, 효과음 등 '한 끗' 추가.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools & Case Studies -->
+        <div class="space-y-6">
+            <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                <h4 class="font-bold text-tech mb-4">🛠️ 필수 AI 도구 모음</h4>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div class="bg-gray-800 p-3 rounded">
+                        <span class="block font-bold text-white">Claude</span>
+                        <span class="text-xs text-gray-400">대본 작성, 페르소나 학습</span>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded">
+                        <span class="block font-bold text-white">ZenSpark (Opal)</span>
+                        <span class="text-xs text-gray-400">영상/이미지 생성, 노코드</span>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded">
+                        <span class="block font-bold text-white">CapCut</span>
+                        <span class="text-xs text-gray-400">컷 편집, 효과, 템플릿</span>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded">
+                        <span class="block font-bold text-white">Vrew / Typecast</span>
+                        <span class="text-xs text-gray-400">AI 성우(TTS), 자동 자막</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+                <h4 class="font-bold text-money mb-4">💡 성공 사례 (Case Study)</h4>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li><strong>🏆 페이커/젠슨 황:</strong> 위인전 스타일. "중국인이 두려워하는 남자" 등 강력한 후킹 사용.</li>
+                    <li><strong>👻 미제 사건 (범죄/심리):</strong> 상어 팔 사건, 앵무새 살인 사건. 3D 애니메이션 재구성으로 몰입도 극대화.
+                    </li>
+                    <li><strong>🎤 윙 (비트박스):</strong> "사촌형이 안 알려줘서 세계 챔피언 된 남자". 인물 중심 스토리텔링.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Expansion Section -->
+<section id="section-expansion"
+    class="space-y-8 max-w-6xl mx-auto mb-24 pt-8 border-t border-gray-200 dark:border-dark-border">
+    <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-sm border border-gray-100 dark:border-dark-border">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">확장 및 수익화: 한계를 넘어서</h2>
+        <p class="mt-2 text-gray-600 dark:text-dark-muted">인물에만 갇히지 마세요. 주제를 확장하고, 해외로 수출하며, 쇼핑과 연동하여
+            수익을 극대화합니다.</p>
+    </div>
+
+    <!-- Topic Expansion -->
+    <div class="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700">
+        <h3 class="text-lg font-bold text-white mb-4">🔄 주제의 무한 확장 (저작권 리스크 분산)</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="p-3 bg-gray-700 rounded-lg">
+                <div class="text-2xl mb-1">👤</div>
+                <div class="font-bold text-gray-200">인물</div>
+                <div class="text-xs text-gray-400">페이커, 손흥민</div>
+            </div>
+            <div class="p-3 bg-gray-700 rounded-lg">
+                <div class="text-2xl mb-1">🐕</div>
+                <div class="font-bold text-gray-200">동물</div>
+                <div class="text-xs text-gray-400">백구, 푸바오</div>
+            </div>
+            <div class="p-3 bg-gray-700 rounded-lg">
+                <div class="text-2xl mb-1">🍓</div>
+                <div class="font-bold text-gray-200">사물/식품</div>
+                <div class="text-xs text-gray-400">딸기(설향), 김밥</div>
+            </div>
+            <div class="p-3 bg-gray-700 rounded-lg">
+                <div class="text-2xl mb-1">🛣️</div>
+                <div class="font-bold text-gray-200">장소</div>
+                <div class="text-xs text-gray-400">경부고속도로, 해운대</div>
+            </div>
+        </div>
+        <p class="text-sm text-gray-400 mt-4 text-center">
+            예: 딸기(설향) -> "일본에 로열티 주던 나라에서 받는 나라로 역전" (국뽕+정보)
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Global -->
+        <div class="bg-dark-card rounded-xl p-6 border border-dark-border">
+            <h3 class="text-lg font-bold text-brand mb-4"><i class="fas fa-globe-americas mr-2"></i>글로벌
+                멀티 유즈</h3>
+            <p class="text-sm text-gray-400 mb-4">
+                한국에서 터진 영상은 해외에서도 터집니다. AI 번역으로 언어 장벽을 넘어 일본, 미국으로 진출하세요.
+                수익 파이프라인이 2배, 3배로 늘어납니다.
+            </p>
+            <div class="flex gap-2 text-center text-sm">
+                <div class="flex-1 bg-gray-800 rounded p-2 text-white">🇰🇷 한국 채널</div>
+                <div class="flex-1 bg-brand/20 rounded p-2 text-brand border border-brand">🇯🇵/🇺🇸 해외
+                    채널</div>
+            </div>
+        </div>
+
+        <!-- Shopping -->
+        <div class="bg-dark-card rounded-xl p-6 border border-dark-border">
+            <h3 class="text-lg font-bold text-money mb-4"><i class="fas fa-shopping-cart mr-2"></i>유튜브
+                쇼핑 (쿠키 전략)</h3>
+            <p class="text-sm text-gray-400 mb-4">
+                단순 애드센스를 넘어, 영상 클릭 후 24시간 내 결제되는 모든 금액의 수수료(약 6.7%)를 챙깁니다.
+            </p>
+            <div class="bg-money/10 p-4 rounded-lg border border-money/30 flex justify-between items-center">
+                <span class="text-sm text-money">예상 추가 수익 (월 매출 1억 시)</span>
+                <span class="text-xl font-bold text-money">약 670만원</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Community Section -->
+<section id="section-community"
+    class="space-y-8 max-w-6xl mx-auto mb-24 pt-8 border-t border-gray-200 dark:border-dark-border">
+    <div class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-sm border border-gray-100 dark:border-dark-border">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">커뮤니티 & 시스템</h2>
+        <p class="mt-2 text-gray-600 dark:text-dark-muted">혼자 하면 무너지지만, 시스템과 함께하면 멀리 갑니다.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+            <h3 class="text-lg font-bold text-white mb-4">👥 강력한 멘토링 시스템</h3>
+            <ul class="space-y-4 text-sm text-gray-300">
+                <li class="flex items-center">
+                    <i class="fas fa-chalkboard-teacher text-brand w-6"></i>
+                    <span><strong>12명의 조교진:</strong> 월 1억~3천만원 버는 실력자 수강생들이 직접 멘토링.</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-video text-brand w-6"></i>
+                    <span><strong>라이브 피드백:</strong> 주 5회 라이브로 내 영상을 진단받고 개선점 도출.</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-layer-group text-brand w-6"></i>
+                    <span><strong>맞춤형 반 편성:</strong> 왕초보반 / 전문화반 / 운영화반 분리 운영.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-dark-card p-6 rounded-xl border border-dark-border">
+            <h3 class="text-lg font-bold text-white mb-4">📊 메타인지 피드백 시스템</h3>
+            <p class="text-sm text-gray-400 mb-4">
+                자체 개발 플랫폼을 통해 내 영상의 등급(A/B/C)을 객관적으로 파악합니다.
+                "왜 안 터졌는지"를 데이터로 확인하고 수정합니다.
+            </p>
+            <div class="space-y-2">
+                <div class="flex items-center">
+                    <span class="w-8 text-xs text-gray-500">Before</span>
+                    <div class="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden ml-2">
+                        <div class="h-full bg-risk w-1/4"></div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-8 text-xs text-brand font-bold">After</span>
+                    <div class="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden ml-2">
+                        <div class="h-full bg-money w-3/4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-emerald-900 to-teal-900 p-6 rounded-xl border border-emerald-700 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">🏆 검증된 압도적 성과</h3>
+        <p class="text-emerald-200 mb-6">부업으로 시작해 인생을 바꾼 수많은 사례가 증명합니다.</p>
+        <div class="flex justify-center gap-8">
+            <div>
+                <p class="text-3xl font-bold text-white">20명+</p>
+                <p class="text-xs text-emerald-300">실버 버튼 (10만)</p>
+            </div>
+            <div>
+                <p class="text-3xl font-bold text-white">3명+</p>
+                <p class="text-xs text-emerald-300">월 1억 수익 달성</p>
+            </div>
+            <div>
+                <p class="text-3xl font-bold text-white">다수</p>
+                <p class="text-xs text-emerald-300">월 천만원 부업</p>
+            </div>
+        </div>
+    </div>
+</section>
