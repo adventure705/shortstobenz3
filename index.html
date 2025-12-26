@@ -268,20 +268,26 @@
                                 title="삭제"><i class="fas fa-trash text-xs"></i></button>
                         </div>
                     </div>
-                    <i
-                        class="fas fa-grip-vertical mr-2 text-gray-400 cursor-move opacity-0 group-hover:opacity-100 drag-handle hover:text-gray-600"></i>
-                    <i class="fas fa-boxes mr-3 flex-shrink-0 text-brand"></i>
-                    <span class="text-content">땡모반 유통반 실습강의 1주차</span>
-                    </span>
-                    <div class="flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onclick="editCourseTitle(this, event)" class="p-1 text-gray-400 hover:text-brand"
-                            title="이름 변경"><i class="fas fa-pen text-xs"></i></button>
-                        <button onclick="openDeleteModal(this)" class="p-1 text-gray-400 hover:text-risk" title="삭제"><i
-                                class="fas fa-trash text-xs"></i></button>
+                    <!-- Distribution Course 1 Item -->
+                <li class="group relative draggable-item" draggable="true" data-id="course-distribution-1">
+                    <div id="sidebar-course-distribution-1"
+                        class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium flex items-center justify-between cursor-pointer border border-transparent transition-all"
+                        onclick="loadDistributionLecture1()">
+                        <span class="flex items-center truncate flex-1 mr-2 course-title">
+                            <i
+                                class="fas fa-grip-vertical mr-2 text-gray-400 cursor-move opacity-0 group-hover:opacity-100 drag-handle hover:text-gray-600"></i>
+                            <i class="fas fa-boxes mr-3 flex-shrink-0 text-brand"></i>
+                            <span class="text-content">땡모반 유통반 실습 1주차</span>
+                        </span>
+                        <div class="flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button onclick="editCourseTitle(this, event)" class="p-1 text-gray-400 hover:text-brand"
+                                title="이름 변경"><i class="fas fa-pen text-xs"></i></button>
+                            <button onclick="openDeleteModal(this)" class="p-1 text-gray-400 hover:text-risk"
+                                title="삭제"><i class="fas fa-trash text-xs"></i></button>
+                        </div>
                     </div>
-        </div>
-        </li>
-        </ul>
+                </li>
+            </ul>
         </div>
     </aside>
 
