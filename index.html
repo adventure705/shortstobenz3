@@ -249,6 +249,26 @@
                         </div>
                     </div>
                 </li>
+
+                <!-- Guerrilla Course 2 Item -->
+                <li class="group relative draggable-item" draggable="true" data-id="course-guerrilla-2">
+                    <div id="sidebar-course-guerrilla-2"
+                        class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium flex items-center justify-between cursor-pointer border border-transparent transition-all"
+                        onclick="loadGuerrillaLecture2()">
+                        <span class="flex items-center truncate flex-1 mr-2 course-title">
+                            <i
+                                class="fas fa-grip-vertical mr-2 text-gray-400 cursor-move opacity-0 group-hover:opacity-100 drag-handle hover:text-gray-600"></i>
+                            <i class="fas fa-bolt mr-3 flex-shrink-0 text-brand"></i>
+                            <span class="text-content">게릴라 특강 2강 20251219</span>
+                        </span>
+                        <div class="flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button onclick="editCourseTitle(this, event)" class="p-1 text-gray-400 hover:text-brand"
+                                title="이름 변경"><i class="fas fa-pen text-xs"></i></button>
+                            <button onclick="openDeleteModal(this)" class="p-1 text-gray-400 hover:text-risk"
+                                title="삭제"><i class="fas fa-trash text-xs"></i></button>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </aside>
@@ -793,6 +813,49 @@
 
             try {
                 const response = await fetch('pages/shorts_explosion_1.html');
+                if (!response.ok) throw new Error('데이터 로드 실패');
+                const html = await response.text();
+                container.innerHTML = html;
+
+            } catch (e) {
+                console.error(e);
+                container.innerHTML = `
+                    <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 text-center">
+                        <i class="fas fa-exclamation-triangle text-risk text-3xl mb-3"></i>
+                        <h3 class="text-lg font-bold text-red-800 dark:text-red-200 mb-2">데이터 로드 실패</h3>
+                        <p class="text-sm text-red-600 dark:text-red-300 mb-4">${e.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        async function loadGuerrillaLecture2() {
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('lecture-view').classList.remove('hidden');
+            document.getElementById('home-nav').classList.add('hidden');
+            document.getElementById('lecture-nav').classList.remove('hidden');
+
+            // Set links for Guerrilla Lecture 2
+            document.getElementById('lecture-nav-links').innerHTML = `
+                <a href="#guerrilla-intro" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="guerrilla-intro">핵심 철학</a>
+                <a href="#guerrilla-quantity" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="guerrilla-quantity">양적 승부</a>
+                <a href="#guerrilla-ai" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="guerrilla-ai">AI 워크플로우</a>
+                <a href="#guerrilla-message" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="guerrilla-message">메시지 & 중복</a>
+                <a href="#guerrilla-cases" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="guerrilla-cases">성공 사례</a>
+            `;
+
+            const sidebarItem = document.getElementById('sidebar-course-guerrilla-2');
+            if (sidebarItem) {
+                document.getElementById('header-title').innerText = sidebarItem.querySelector('.text-content').innerText;
+            }
+
+            updateSidebarSelection('sidebar-course-guerrilla-2');
+
+            const container = document.getElementById('lecture-content');
+            container.innerHTML = '<div class="text-center py-20"><i class="fas fa-spinner fa-spin text-4xl text-brand mb-4"></i><p class="text-gray-500">게릴라 2강을 불러오는 중입니다...</p></div>';
+
+            try {
+                const response = await fetch('pages/guerrilla_2.html');
                 if (!response.ok) throw new Error('데이터 로드 실패');
                 const html = await response.text();
                 container.innerHTML = html;
