@@ -1297,19 +1297,30 @@
                         const href = tab.getAttribute('href');
                         const targetId = href.startsWith('#') ? href.substring(1) : href;
 
-                        // A. Manage Visibility
-                        sectionIds.forEach(id => {
-                            const el = document.getElementById(id);
-                            if (el) el.classList.add('hidden');
-                        });
-
+                        // Just scroll to the target element (One Page)
                         const targetElement = document.getElementById(targetId);
                         if (targetElement) {
-                            targetElement.classList.remove('hidden');
-                            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll page to top
+                            // Adjust for sticky header offset
+                            const offsetObj = targetElement.getBoundingClientRect().top + window.pageYOffset - 120; // 120px offset
+
+                            const scrollContainer = document.getElementById('content-area');
+                            if (scrollContainer) {
+                                // Calculate position relative to container
+                                const containerRect = scrollContainer.getBoundingClientRect();
+                                const elementRect = targetElement.getBoundingClientRect();
+                                const offset = elementRect.top - containerRect.top + scrollContainer.scrollTop - 20;
+
+                                scrollContainer.scrollTo({
+                                    top: offset,
+                                    behavior: 'smooth'
+                                });
+                            } else {
+                                // Fallback
+                                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
                         }
 
-                        // B. Update Active State
+                        // Update Active State (Simple click-based)
                         tabs.forEach(t => {
                             if (t === tab) {
                                 t.classList.add('active', 'text-brand', 'border-b-2', 'border-brand');
