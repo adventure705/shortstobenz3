@@ -291,7 +291,7 @@
                 <li class="group relative draggable-item" draggable="true" data-id="course-regular-2">
                     <div id="sidebar-course-regular-2"
                         class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium flex items-center justify-between cursor-pointer border border-transparent transition-all"
-                        onclick="loadLecture2()">
+                        onclick="loadLecture2_v2()">
                         <span class="flex items-center truncate flex-1 mr-2 course-title">
                             <i
                                 class="fas fa-grip-vertical mr-2 text-gray-400 cursor-move opacity-0 group-hover:opacity-100 drag-handle hover:text-gray-600"></i>
@@ -952,19 +952,22 @@
             }
         }
 
-        async function loadLecture2() {
+        async function loadLecture2_v2() {
+            console.log('loadLecture2_v2 called');
+            // Hard reset of views to ensure clean slate
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('lecture-view').classList.remove('hidden');
             document.getElementById('home-nav').classList.add('hidden');
             document.getElementById('lecture-nav').classList.remove('hidden');
 
-            // Set links for Regular Lecture 2
-            document.getElementById('lecture-nav-links').innerHTML = `
-                <a href="#lecture2-intro" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="lecture2-intro">마인드셋</a>
-                <a href="#lecture2-alpha" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="lecture2-alpha">알파형 전략</a>
-                <a href="#lecture2-genspark" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="lecture2-genspark">젠스파크</a>
-                <a href="#lecture2-opal" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="lecture2-opal">오팔 활용</a>
-                <a href="#lecture2-vision" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="lecture2-vision">비전</a>
+            // Set links for Regular Lecture 2 (Updated Names)
+            const navLinksContainer = document.getElementById('lecture-nav-links');
+            navLinksContainer.innerHTML = `
+                <a href="#section-revolution" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="section-revolution">혁명과 사례</a>
+                <a href="#section-mindset" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="section-mindset">마인드셋 & J커브</a>
+                <a href="#section-workflow" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="section-workflow">젠스파크 실전</a>
+                <a href="#section-strategy" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="section-strategy">알파형 전략</a>
+                <a href="#section-vision" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="section-vision">비용 & 비전</a>
             `;
 
             const sidebarItem = document.getElementById('sidebar-course-regular-2');
@@ -978,10 +981,15 @@
             container.innerHTML = '<div class="text-center py-20"><i class="fas fa-spinner fa-spin text-4xl text-brand mb-4"></i><p class="text-gray-500">정규강의 2강을 불러오는 중입니다...</p></div>';
 
             try {
-                const response = await fetch('pages/lecture2.html');
+                const response = await fetch('pages/lecture2.html?v=' + new Date().getTime());
                 if (!response.ok) throw new Error('데이터 로드 실패');
                 const html = await response.text();
                 container.innerHTML = html;
+
+                // Initialize Lecture 2 Scripts (v2)
+                setTimeout(() => {
+                    initLecture2_v2();
+                }, 100);
 
             } catch (e) {
                 console.error(e);
@@ -989,7 +997,7 @@
                     <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 text-center">
                         <i class="fas fa-exclamation-triangle text-risk text-3xl mb-3"></i>
                         <h3 class="text-lg font-bold text-red-800 dark:text-red-200 mb-2">데이터 로드 실패</h3>
-                        <p class="text-sm text-red-600 dark:text-red-300 mb-4">\${e.message}</p>
+                        <p class="text-sm text-red-600 dark:text-red-300 mb-4">${e.message}</p>
                     </div>
                 `;
             }
@@ -1268,6 +1276,90 @@
 
             // 2. Initialize Workflow
             showWorkflowStep(1);
+        }
+
+        function initLecture2_v2() {
+            console.log("Initializing Lecture 2 v2...");
+            const sectionIds = ['section-revolution', 'section-mindset', 'section-workflow', 'section-strategy', 'section-vision'];
+
+            // 1. Attach Click Handlers to Global Nav Tabs
+            // FAST FIX: Aggressively hide the internal nav if it sneaks in via cache
+            const ghostNav = document.getElementById('lecture2-tabs');
+            if (ghostNav) ghostNav.style.display = 'none';
+
+            const navLinksContainer = document.getElementById('lecture-nav-links');
+            if (navLinksContainer) {
+                const tabs = navLinksContainer.querySelectorAll('a');
+
+                tabs.forEach(tab => {
+                    tab.onclick = (e) => {
+                        e.preventDefault();
+                        const href = tab.getAttribute('href');
+                        const targetId = href.startsWith('#') ? href.substring(1) : href;
+
+                        // A. Manage Visibility
+                        sectionIds.forEach(id => {
+                            const el = document.getElementById(id);
+                            if (el) el.classList.add('hidden');
+                        });
+
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.classList.remove('hidden');
+                            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll page to top
+                        }
+
+                        // B. Update Active State
+                        tabs.forEach(t => {
+                            if (t === tab) {
+                                t.classList.add('active', 'text-brand', 'border-b-2', 'border-brand');
+                                t.classList.remove('text-gray-500', 'dark:text-dark-muted');
+                            } else {
+                                t.classList.remove('active', 'text-brand', 'border-b-2', 'border-brand');
+                                t.classList.add('text-gray-500', 'dark:text-dark-muted');
+                                t.style.borderBottom = '';
+                            }
+                        });
+                    };
+                });
+            }
+
+            // 2. Initialize Accordions
+            const accordions = document.querySelectorAll('#lecture-content-area .toggle-accordion-btn');
+            accordions.forEach(btn => {
+                btn.removeAttribute('onclick');
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('.fa-chevron-down');
+
+                    if (content) {
+                        content.classList.toggle('hidden');
+                        const isHidden = content.classList.contains('hidden');
+                        if (icon) {
+                            if (isHidden) {
+                                icon.classList.remove('rotate-180');
+                            } else {
+                                icon.classList.add('rotate-180');
+                            }
+                            icon.classList.add('transition-transform', 'duration-300');
+                        }
+                    }
+                };
+            });
+
+            // 3. Next Button Logic
+            const nextBtns = document.querySelectorAll('#lecture-content-area button');
+            nextBtns.forEach(btn => {
+                if (btn.textContent.includes('강의 완료 및 다음으로')) {
+                    btn.onclick = (e) => {
+                        e.preventDefault();
+                        alert('강의를 완료했습니다! 수고하셨습니다. (다음 강의가 준비 중입니다)');
+                        showHome();
+                    };
+                }
+            });
         }
     </script>
 </body>
