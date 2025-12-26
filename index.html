@@ -676,6 +676,15 @@
             document.getElementById('home-nav').classList.add('hidden');
             document.getElementById('lecture-nav').classList.remove('hidden');
 
+            // Restore default links for regular lecture
+            document.getElementById('lecture-nav-links').innerHTML = `
+                <a href="#mindset" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="mindset">마인드셋</a>
+                <a href="#tools" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="tools">AI 툴</a>
+                <a href="#workflow" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="workflow">워크플로우</a>
+                <a href="#policy" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="policy">정책 & 전략</a>
+                <a href="#cases" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="cases">사례 연구</a>
+            `;
+
             const sidebarItem = document.getElementById('sidebar-course-regular');
             if (sidebarItem) {
                 document.getElementById('header-title').innerText = sidebarItem.querySelector('.text-content').innerText;
@@ -761,7 +770,16 @@
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('lecture-view').classList.remove('hidden');
             document.getElementById('home-nav').classList.add('hidden');
-            document.getElementById('lecture-nav').classList.add('hidden');
+            document.getElementById('lecture-nav').classList.remove('hidden');
+
+            // Set links for Shorts Explosion lecture
+            document.getElementById('lecture-nav-links').innerHTML = `
+                <a href="#shorts-core" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="shorts-core">핵심 철학</a>
+                <a href="#shorts-sourcing" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="shorts-sourcing">소재 분석</a>
+                <a href="#shorts-content" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="shorts-content">대본 설계</a>
+                <a href="#shorts-production" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="shorts-production">제작 과정</a>
+                <a href="#shorts-mastery" class="tab-btn pb-4 text-sm font-medium text-gray-500 dark:text-dark-muted hover:text-gray-700 dark:hover:text-gray-200 transition-colors" data-target="shorts-mastery">인사이트</a>
+            `;
 
             const sidebarItem = document.getElementById('sidebar-course-shorts-explosion-1');
             if (sidebarItem) {
